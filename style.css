@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    width: 80%;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cardForm {
+    margin-bottom: 20px;
+}
+
+#cardText {
+    width: 70%;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 12px;
+}
+
+#cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    background: #ffd700;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute; /* 使用随机放置时需要的样式 */
+}
