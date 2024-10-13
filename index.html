@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeahRay is a Robot Monster</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="home">
     <!-- Fixed Header -->
     <div class="header">
         <div class="button">PICK THEM UP</div>
-        <div class="title">R᷈o᷈b᷈o᷈T᷈ M᷈o᷈n᷈s᷈T᷈e᷈R᷈</div>
-        <div class="button">GALLERY</div>
+        <div class="title" onclick="randomizeCards()">R᷈o᷈b᷈o᷈T᷈ M᷈o᷈n᷈s᷈T᷈e᷈R᷈</div>
+        <div class="button" onclick="switchPage('gallery')">GALLERY</div>
     </div>
 
     <!-- Card Container -->
-    <div class="card-container">
-        <div class="card">
+    <div class="card-container" id="card-container">
+        <div class="card" draggable="true">
             <div class="card-content">
                 <h3>Card Title 1</h3>
                 <p>Short description goes here...</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" draggable="true">
             <div class="card-content">
                 <h3>Card Title 2</h3>
                 <p>Short description goes here...</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" draggable="true">
             <div class="card-content">
                 <h3>Card Title 3</h3>
                 <p>Short description goes here...</p>
