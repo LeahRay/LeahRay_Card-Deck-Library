@@ -18,6 +18,7 @@ body {
     justify-content: space-between;
     padding: 0 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
 }
 
 .header .title {
@@ -67,7 +68,6 @@ body {
 
 .card-content p {
     font-size: 0.9em;
-    color: #555;
 }
 /* Footer */
 .footer {
@@ -93,4 +93,43 @@ body {
 .gallery-view .card {
     max-height: 180px; /* 设置最大高度 */
     overflow: hidden; /* 超出部分隐藏 */
+}
+.zone-1 {
+    background-color: #f80808; /* Zone 1 颜色 */
+    color: #000000;
+}
+
+.zone-2 {
+    background-color: #C1FFC1; /* Zone 2 颜色 */
+}
+
+.zone-3 {
+    background-color: #C1D4FF; /* Zone 3 颜色 */
+}
+
+.zone-4 {
+    background-color: #FFC1E3; /* Zone 4 颜色 */
+}
+
+.zone-5 {
+    background-color: #FFF1C1; /* Zone 5 颜色 */
+}
+
+.zone-6 {
+    background-color: #D1C1FF; /* Zone 6 颜色 */
+}
+.card-image {
+    width: 100%; /* 图片占满卡片宽度 */
+    height: auto; /* 保持图片宽高比 */
+    border-radius: 5px; /* 图片圆角 */
+    bottom: auto;
+}
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    cursor: se-resize; /* 鼠标样式为缩放箭头 */
 }
