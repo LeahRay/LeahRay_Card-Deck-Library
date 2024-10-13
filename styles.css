@@ -1,8 +1,12 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background: linear-gradient(250deg, rgb(0, 157, 255), white, yellow, rgb(18, 205, 18));
-    height: 100vh;
+    height: 100%;
+    background-size: cover;
+    width: 100%;
+}
+html, body {
+    overflow-x: hidden;
 }
 
 /* Fixed Header */
@@ -19,6 +23,7 @@ body {
     padding: 0 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 9999;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header .title {
@@ -42,37 +47,44 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 200vh;
     position: relative;
+    padding-left: 80px;
+    padding-right: 20px;
 }
-
 
 .card {
     background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
+    border: 1px solid #000000;
+    padding: 5px;
     border-radius: 8px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     width: 200px;
     overflow: hidden;
     position: absolute;
-    transition: transform 0.2s; /* 添加缩放效果 */
+    transition: transform 0.2s;
     cursor: pointer;
+    margin: 0;
 }
 
-.card-content h3 {
+.card-content .zone-2 h3 {
     font-size: 1.2em;
     margin: 0;
+    font-family:"Playwrite US Trad", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .card-content p {
     font-size: 0.9em;
 }
+
 /* Footer */
 .footer {
     position: relative;
-    bottom: 20px;
+    bottom: 0px;
     left: 0;
     right: 0;
     color: #000000;
@@ -81,49 +93,44 @@ body {
     justify-content: center;
     font-size: 14px;
 }
+
+/* Gallery View Styles */
 .gallery-view .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 根据卡片数量自适应列数 */
-    grid-gap: 10px; /* 卡片间距 */
-    justify-items: center;
-    align-items: start;
-    height: auto;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 适当缩小列宽 */
+    gap: 5px; /* 缩小卡片间距 */
     padding: 20px;
+    justify-content: center; /* 居中对齐 */
+    align-items: start;
+    max-width: 1000px; /* 设置最大宽度，以控制卡片居中显示 */
+    margin: 0 auto; /* 使容器在页面中居中 */
 }
+
 .gallery-view .card {
-    max-height: 180px; /* 设置最大高度 */
-    overflow: hidden; /* 超出部分隐藏 */
-}
-.zone-1 {
-    background-color: #f80808; /* Zone 1 颜色 */
-    color: #000000;
-}
-
-.zone-2 {
-    background-color: #C1FFC1; /* Zone 2 颜色 */
+    max-height: fit-content;
+    max-width: 300px;
+    overflow: hidden;
+    margin: 0;
+    padding: 10px; /* 缩小卡片内容内边距 */
+    width: 100%; /* 让卡片宽度占满列 */
 }
 
-.zone-3 {
-    background-color: #C1D4FF; /* Zone 3 颜色 */
-}
+/* Zone Styles */
+.zone-1 { background-color: #f80808; }
+.zone-2 { background-color: yellow; }
+.zone-3 { background-color: #C1D4FF; }
+.zone-4 { background-color: #FFC1E3; }
+.zone-5 { background-color: #FFF1C1; }
+.zone-6 { background-color: #D1C1FF; }
 
-.zone-4 {
-    background-color: #FFC1E3; /* Zone 4 颜色 */
-}
-
-.zone-5 {
-    background-color: #FFF1C1; /* Zone 5 颜色 */
-}
-
-.zone-6 {
-    background-color: #D1C1FF; /* Zone 6 颜色 */
-}
+/* Image Styles */
 .card-image {
-    width: 100%; /* 图片占满卡片宽度 */
-    height: auto; /* 保持图片宽高比 */
-    border-radius: 5px; /* 图片圆角 */
-    bottom: auto;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
+
+/* Resize Handle */
 .resize-handle {
     width: 10px;
     height: 10px;
@@ -131,5 +138,5 @@ body {
     position: absolute;
     right: 5px;
     bottom: 5px;
-    cursor: se-resize; /* 鼠标样式为缩放箭头 */
+    cursor: se-resize;
 }

@@ -6,49 +6,48 @@ function switchPage(page) {
     const cards = document.querySelectorAll('.card');
 
     if (page === 'gallery') {
-        // 切换到 Gallery 视图
         container.classList.add('gallery-view');
         isGalleryView = true;
 
         // 禁用拖拽并移除缩放手柄
         cards.forEach(card => {
-            card.style.position = 'relative'; // 取消 absolute 定位
+            card.style.position = 'relative';
             card.style.left = 'auto';
             card.style.top = 'auto';
             card.style.width = 'auto';
             card.style.height = 'auto';
 
             // 移除拖拽事件
-            card.onmousedown = null;
+            removeDraggable(card);
 
-            // 移除缩放手柄
+            // 隐藏缩放手柄
             const resizeHandle = card.querySelector('.resize-handle');
             if (resizeHandle) {
-                resizeHandle.remove(); // 从 DOM 中移除手柄
+                resizeHandle.style.display = 'none';
             }
 
             // 添加双击事件，用于放大卡片
             card.addEventListener('dblclick', enlargeCard);
         });
     } else {
-        // 切换回初始界面
         container.classList.remove('gallery-view');
         isGalleryView = false;
 
-        // 恢复随机布局并重新添加缩放手柄
+        // 随机布局卡片并重新启用拖拽和缩放
         randomizeCards();
 
         cards.forEach(card => {
-            // 重新添加缩放手柄
-            if (!card.querySelector('.resize-handle')) {
-                const resizeHandle = document.createElement('div');
-                resizeHandle.classList.add('resize-handle');
-                card.appendChild(resizeHandle);
-                makeResizable(card); // 确保新手柄可用
+            // 显示缩放手柄
+            const resizeHandle = card.querySelector('.resize-handle');
+            if (resizeHandle) {
+                resizeHandle.style.display = 'block';
             }
 
             // 移除双击放大事件
             card.removeEventListener('dblclick', enlargeCard);
+
+            // 启用拖拽功能
+            makeDraggable(card);
         });
     }
 }
@@ -64,8 +63,8 @@ function randomizeCards() {
 
     cards.forEach(card => {
         // 随机尺寸和位置
-        const width = Math.floor(Math.random() * 100) + 150;
-        const height = Math.floor(Math.random() * 100) + 200;
+        const width = Math.floor(Math.random() * 100) + 50;
+        const height = Math.floor(Math.random() * 100) + 50;
         const x = Math.floor(Math.random() * (containerWidth - width));
         const y = Math.floor(Math.random() * (containerHeight - height));
 
@@ -86,35 +85,49 @@ function makeDraggable(card) {
     let isDragging = false;
     let offsetX, offsetY;
 
-    card.addEventListener('mousedown', (e) => {
-        // 检查是否点击了缩放手柄，如果是，则不触发拖拽
+    function handleMouseDown(e) {
         if (e.target.classList.contains('resize-handle')) return;
 
         isDragging = true;
         highestZIndex++;
-        card.style.zIndex = highestZIndex; // 将选中的卡片置顶
+        card.style.zIndex = highestZIndex;
 
-        // 记录点击位置相对于卡片左上角的偏移量
         offsetX = e.clientX - card.getBoundingClientRect().left;
         offsetY = e.clientY - card.getBoundingClientRect().top;
 
         card.style.cursor = 'grabbing';
-    });
+    }
 
-    document.addEventListener('mousemove', (e) => {
+    function handleMouseMove(e) {
         if (isDragging) {
-            // 更新卡片位置
             card.style.left = `${e.clientX - offsetX}px`;
             card.style.top = `${e.clientY - offsetY}px`;
         }
-    });
+    }
 
-    document.addEventListener('mouseup', () => {
+    function handleMouseUp() {
         if (isDragging) {
             isDragging = false;
             card.style.cursor = 'grab';
         }
-    });
+    }
+
+    // 添加拖拽事件监听器
+    card.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    // 存储移除拖拽事件的函数
+    card.removeDragEvents = function () {
+        card.removeEventListener('mousedown', handleMouseDown);
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+    };
+}
+function removeDraggable(card) {
+    if (card.removeDragEvents) {
+        card.removeDragEvents();
+    }
 }
 
 // 页面加载时初始化随机布局
