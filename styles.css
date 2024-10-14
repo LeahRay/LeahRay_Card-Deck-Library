@@ -4,6 +4,7 @@ body {
     height: 300vh;
     background-size: cover;
     width: 100%;
+    overflow-y: scroll;
 }
 html, body {
     overflow-x: hidden;
