@@ -189,3 +189,73 @@ html, body {
 .gallery-controls button:hover {
     background-color: #bbb;
 }
+@media (max-width: 768px) {
+    /* 手机端卡片布局 */
+    .card-container {
+        grid-template-columns: 1fr; /* 单列显示卡片 */
+        padding: 10px;
+    }
+
+    /* 卡片样式调整 */
+    .card {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    /* 控制按钮样式 */
+    .gallery-controls {
+        flex-wrap: wrap; /* 按钮换行 */
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .gallery-controls button {
+        padding: 8px;
+        font-size: 12px;
+    }
+    .header {
+        height: 80px;
+        padding: 0 10px;
+    }
+
+    .header .title {
+        font-size: 25pt; /* 缩小标题字体 */
+        text-align: center;
+    }
+
+    .header .button {
+        padding: 8px;
+        font-size: 14px; /* 缩小按钮字体 */
+    }
+}
+
+
+@media (max-width: 480px) {
+    /* 更小屏幕的样式调整 */
+    .card-container {
+        padding: 5px;
+    }
+
+    .card {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .gallery-controls button {
+        padding: 5px;
+        font-size: 10px;
+    }
+    .header {
+        height: 70px;
+        padding: 0 5px;
+    }
+
+    .header .title {
+        font-size: 15pt;
+    }
+
+    .header .button {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
