@@ -88,10 +88,26 @@ html, body {
     font-weight: lighter;
 }
 .zone-5{
-    font-family: 'Unbounded', sans-serif;
-    color: rgb(0, 255, 30);
-    font-size: 30pt;
-    border: 1.5px solid rgb(255, 0, 251);
+    font-family:'Safilms Crawford', sans-serif;
+    font-size: 16pt;
+    border: 1.5px solid lightgreen;
+    color: lightgreen;
+}
+.zone-6{
+    font-family: 'Belanosima', sans-serif;
+    color: rgb(255, 192, 245);
+    border: 1px solid pink;
+}
+.zone-6 h3{
+    font-size: 25pt;
+    font-weight:lighter;
+    line-height: 1.0;
+}
+.zone-6 p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: lighter;
+    margin: 5px;
 }
 /* Footer */
 .footer {
@@ -116,6 +132,7 @@ html, body {
     justify-content: center; /* 居中对齐 */
     align-items: start;
     margin: 0 auto; /* 使容器在页面中居中 */
+    margin-top: 0px;
 }
 
 .gallery-view .card {
@@ -132,8 +149,8 @@ html, body {
 .zone-2 { background-color: yellow; }
 .zone-3 { background-color: #c3fffe; }
 .zone-4 { background-color: #c8c1ff; border: 1px solid green;}
-.zone-5 { background-color: blue; }
-.zone-6 { background-color: #D1C1FF; }
+.zone-5 { background-color: grey; }
+.zone-6 { background-color: #736640; }
 
 /* Image Styles */
 .card-image {
@@ -151,4 +168,24 @@ html, body {
     right: 5px;
     bottom: 5px;
     cursor: se-resize;
+}
+.gallery-controls {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.gallery-controls button {
+    padding: 10px 15px;
+    border: solid 1px black;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.gallery-controls button:hover {
+    background-color: #bbb;
 }

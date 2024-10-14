@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <link href="https://fonts.cdnfonts.com/css/kramerized" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/unbounded" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/safilms-crawford" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/belanosima" rel="stylesheet">
+                
+                
 </head>
 <body class="home">
     <!-- Fixed Header -->
@@ -16,7 +19,15 @@
         <div class="title" onclick="randomizeCards()">R᷈o᷈b᷈o᷈T᷈ M᷈o᷈n᷈s᷈T᷈e᷈R᷈</div>
         <div class="button" onclick="switchPage('gallery')">GALLERY</div>
     </div>
-
+    <div class="gallery-controls">
+        <button onclick="filterCards('zone-1')">Design Method & Style</button>
+        <button onclick="filterCards('zone-2')">Design Medium</button>
+        <button onclick="filterCards('zone-3')">Theory & Concept</button>
+        <button onclick="filterCards('zone-4')">Existed Projects</button>
+        <button onclick="filterCards('zone-5')">Actions</button>
+        <button onclick="filterCards('zone-6')">Symbolic & Conceptual Ideas</button>
+        <button onclick="filterCards('all')">All</button>
+    </div>
     <!-- Card Container -->
     <div class="card-container" id="card-container">
         <div class="card zone-1" draggable="true">
@@ -367,8 +378,126 @@
                 <div class="resize-handle"></div>
             </div>
         </div>
-        
-
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Reveal</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div><div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Parodies</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Critique</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Subvert</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Question</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Metaphor</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>hijack</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Challenge</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Recontextualize</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Reroute</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-5" draggable="true">
+            <div class="card-content">
+                <h3>Against</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>Sand</h3>
+                <p>- Time Passenger</p>
+                <p>- Hourglass</p>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>Plants</h3>
+                <p>- Each season symbolizes a life stage</p>
+                <p>- In a garden of expectations</p>
+                <p>- "Artificial Growth"</p>
+                <p>- Conformity vs. Natural Growth</p>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>Water</h3>
+                <p>- Erosion</p>
+                <p>- The deeper the water, the greater the pressure</p>
+                <p>- Evaporation</p>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>River</h3>
+                <p>- Life</p>
+                <p>- Adaptability & Resilience</p>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>Mirror</h3>
+                <p>- Distorting Mirror</p>
+                <p>- Distorted Self</p>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>Artificial</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <div class="card zone-6" draggable="true">
+            <div class="card-content">
+                <h3>Physiognomy</h3>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
         <!-- Add more cards as needed -->
     </div>
      <!-- Footer -->

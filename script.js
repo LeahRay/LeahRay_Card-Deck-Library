@@ -3,55 +3,70 @@ let isGalleryView = false; // 标记是否处于 Gallery 视图
 let highestZIndex = 1; // 用于 bringToFront 功能的 z-index
 
 function switchPage(page) {
-    const cards = document.querySelectorAll('.card');
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const container = document.querySelector('.card-container');
+    const controls = document.querySelector('.gallery-controls');
 
     if (page === 'gallery') {
         container.classList.add('gallery-view');
         isGalleryView = true;
+        controls.style.display = 'flex'; // 显示按钮控件
+
+        // 随机排列卡片
+        const shuffledCards = cards.sort(() => Math.random() - 0.5);
+        container.innerHTML = '';
+        shuffledCards.forEach(card => container.appendChild(card));
 
         // 禁用拖拽并移除缩放手柄
-        cards.forEach(card => {
+        shuffledCards.forEach(card => {
             card.style.position = 'relative';
             card.style.left = 'auto';
             card.style.top = 'auto';
             card.style.width = 'auto';
             card.style.height = 'auto';
 
-            // 移除拖拽事件
             removeDraggable(card);
 
-            // 隐藏缩放手柄
             const resizeHandle = card.querySelector('.resize-handle');
             if (resizeHandle) {
                 resizeHandle.style.display = 'none';
             }
 
-            // 添加双击事件，用于放大卡片
             card.addEventListener('dblclick', enlargeCard);
         });
     } else {
         container.classList.remove('gallery-view');
         isGalleryView = false;
+        controls.style.display = 'none'; // 隐藏按钮控件
 
-        // 随机布局卡片并重新启用拖拽和缩放
         randomizeCards();
 
         cards.forEach(card => {
-            // 显示缩放手柄
             const resizeHandle = card.querySelector('.resize-handle');
             if (resizeHandle) {
                 resizeHandle.style.display = 'block';
             }
 
-            // 移除双击放大事件
             card.removeEventListener('dblclick', enlargeCard);
 
-            // 启用拖拽功能
             makeDraggable(card);
+            card.style.display = 'block'; // 确保在非 Gallery View 显示所有卡片
         });
     }
 }
+function filterCards(zone) {
+    const cards = document.querySelectorAll('.card');
 
+    cards.forEach(card => {
+        if (zone === 'all') {
+            card.style.display = 'block'; // 显示所有卡片
+        } else if (card.classList.contains(zone)) {
+            card.style.display = 'block'; // 显示指定 zone 的卡片
+        } else {
+            card.style.display = 'none'; // 隐藏其他卡片
+        }
+    });
+}
 
 // 随机化卡片位置和大小的函数
 function randomizeCards() {
