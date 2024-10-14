@@ -256,3 +256,52 @@ cards.forEach(card => {
     makeDraggable(card);
     makeResizable(card);
 });
+
+function pickRandomCards() {
+    const container = document.querySelector('.card-container');
+    const allCards = Array.from(container.querySelectorAll('.card'));
+
+    // 按 zone 分类卡片
+    const zones = {
+        'zone-1': [],
+        'zone-2': [],
+        'zone-3': [],
+        'zone-4': [],
+        'zone-5': [],
+        'zone-6': []
+    };
+
+    // 将卡片分类到对应的 zone
+    allCards.forEach(card => {
+        for (let zone in zones) {
+            if (card.classList.contains(zone)) {
+                zones[zone].push(card);
+            }
+        }
+    });
+
+    // 随机选择 3 个不同的 zone
+    const zoneNames = Object.keys(zones);
+    const selectedZones = [];
+    while (selectedZones.length < 3) {
+        const randomZone = zoneNames[Math.floor(Math.random() * zoneNames.length)];
+        if (!selectedZones.includes(randomZone) && zones[randomZone].length > 0) {
+            selectedZones.push(randomZone);
+        }
+    }
+
+    // 从每个选中的 zone 中随机选择一张卡片
+    const selectedCards = selectedZones.map(zone => {
+        const cardsInZone = zones[zone];
+        return cardsInZone[Math.floor(Math.random() * cardsInZone.length)];
+    });
+
+    // 隐藏所有卡片，显示选中的卡片
+    allCards.forEach(card => {
+        card.style.display = 'none';
+    });
+
+    selectedCards.forEach(card => {
+        card.style.display = 'block';
+    });
+}
