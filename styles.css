@@ -50,13 +50,12 @@ html, body {
     width: 100%;
     height: 200vh;
     position: relative;
-    padding-left: 80px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .card {
     background-color: #fff;
-    border: 1px solid #000000;
     padding: 5px;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
@@ -68,21 +67,35 @@ html, body {
     margin: 0;
 }
 
-.card-content .zone-2 h3 {
-    font-size: 1.2em;
+.zone-2{
+    font-size: 2rem;
     margin: 0;
-    font-family:"Playwrite US Trad", cursive;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
+    font-family: 'Kramerized', sans-serif;
+    border: 1px solid rgb(0, 0, 0);
 }
-
-.card-content p {
-    font-size: 0.9em;
+.zone-3{
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+    border: 1px solid #ff0000;
 }
-
+.zone-3 h3{
+    font-size: 25pt;
+    font-weight: lighter;
+    line-height: 1.0;
+}
+.zone-3 p{
+    font-size: 10pt;
+    font-weight: lighter;
+}
+.zone-5{
+    font-family: 'Unbounded', sans-serif;
+    color: rgb(0, 255, 30);
+    font-size: 30pt;
+    border: 1.5px solid rgb(255, 0, 251);
+}
 /* Footer */
 .footer {
+    font-family: Arial, Helvetica, sans-serif;
     position: relative;
     bottom: 0px;
     left: 0;
@@ -102,7 +115,6 @@ html, body {
     padding: 20px;
     justify-content: center; /* 居中对齐 */
     align-items: start;
-    max-width: 1000px; /* 设置最大宽度，以控制卡片居中显示 */
     margin: 0 auto; /* 使容器在页面中居中 */
 }
 
@@ -116,11 +128,11 @@ html, body {
 }
 
 /* Zone Styles */
-.zone-1 { background-color: #f80808; }
+.zone-1 { background-color: #f80808; border: 1px solid #000000;}
 .zone-2 { background-color: yellow; }
-.zone-3 { background-color: #C1D4FF; }
-.zone-4 { background-color: #FFC1E3; }
-.zone-5 { background-color: #FFF1C1; }
+.zone-3 { background-color: #c3fffe; }
+.zone-4 { background-color: #c8c1ff; border: 1px solid green;}
+.zone-5 { background-color: blue; }
 .zone-6 { background-color: #D1C1FF; }
 
 /* Image Styles */

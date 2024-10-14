@@ -63,8 +63,8 @@ function randomizeCards() {
 
     cards.forEach(card => {
         // 随机尺寸和位置
-        const width = Math.floor(Math.random() * 100) + 50;
-        const height = Math.floor(Math.random() * 100) + 50;
+        const width = Math.floor(Math.random() * 100) + 60;
+        const height = Math.floor(Math.random() * 100) +60;
         const x = Math.floor(Math.random() * (containerWidth - width));
         const y = Math.floor(Math.random() * (containerHeight - height));
 
